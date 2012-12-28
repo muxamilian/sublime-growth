@@ -1,0 +1,67 @@
+- model_class = Formula
+.page-header
+  %h1
+    =t '.title', :default => model_class.model_name.human.pluralize
+    %small
+      =t '.small_title'
+
+%canvas{id: 'main-canvas'}
+
+- content_for :sidebar do
+  .span3
+    .well.sidebar-nav
+      %button#play.btn.btn-success.btn-mini{type: 'button'}
+        =raw t '.sidebar.play'
+      %button#pause.btn.btn-danger.btn-mini{type: 'button'}
+        =raw t '.sidebar.pause'
+      %button#reset.btn.btn-warning.btn-mini{type: 'button'}
+        =raw t '.sidebar.reset'
+      %button#download.btn.btn-mini{type: 'button'}
+        =raw t '.sidebar.download'
+      %table.information
+        %tr
+          %td
+            = t '.sidebar.interval'
+          %td
+            %input#interval{type: 'text'}
+        %tr
+          %td
+            = t '.sidebar.iterations'
+          %td#iterations 0
+
+- content_for :page_specific_scripts do
+  :coffeescript
+    $ ->
+      initialize_canvas(default_image, default_formula)
+      $("#play").click -> play()
+      $("#pause").click -> pause()
+      $("#reset").click -> reset()
+      $("#interval").change -> set_interval()
+      $("#download").click ->
+        img = get_png()
+        open(img, '_blank')
+
+/ %table.table.table-striped
+/   %thead
+/     %tr
+/       %th= model_class.human_attribute_name(:id)
+/       %th= model_class.human_attribute_name(:formula)
+/       %th= model_class.human_attribute_name(:description)
+/       %th= model_class.human_attribute_name(:counter)
+/       %th= model_class.human_attribute_name(:periodic)
+/       %th= model_class.human_attribute_name(:created_at)
+/       %th=t '.actions', :default => t("helpers.actions")
+/   %tbody
+/     - @formulas.each do |formula|
+/       %tr
+/         %td= link_to formula.id, formula_path(formula)
+/         %td= formula.formula
+/         %td= formula.description
+/         %td= formula.counter
+/         %td= formula.periodic
+/         %td=l formula.created_at
+/         %td
+/           = link_to t('.edit', :default => t("helpers.links.edit")), edit_formula_path(formula), :class => 'btn btn-mini'
+/           = link_to t('.destroy', :default => t("helpers.links.destroy")), formula_path(formula), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+/ = link_to t('.new', :default => t("helpers.links.new")), new_formula_path, :class => 'btn btn-primary'

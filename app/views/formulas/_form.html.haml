@@ -1,0 +1,20 @@
+= form_for @formula, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :formula, :class => 'control-label'
+    .controls
+      = f.text_field :formula, :class => 'text_field'
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_area :description, :class => 'text_area'
+  .control-group
+    = f.label :counter, :class => 'control-label'
+    .controls
+      = f.number_field :counter, :class => 'number_field'
+  .control-group
+    = f.label :periodic, :class => 'control-label'
+    .controls
+      = f.check_box :periodic, :class => 'check_box'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), formulas_path, :class => 'btn'

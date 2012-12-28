@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  formula: MyString
+  description: MyText
+  counter: 1
+  periodic: false
+
+two:
+  formula: MyString
+  description: MyText
+  counter: 1
+  periodic: false

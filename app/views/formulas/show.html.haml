@@ -1,0 +1,25 @@
+- model_class = Formula
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:formula) + ':'
+  %br
+  = @formula.formula
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @formula.description
+%p
+  %strong= model_class.human_attribute_name(:counter) + ':'
+  %br
+  = @formula.counter
+%p
+  %strong= model_class.human_attribute_name(:periodic) + ':'
+  %br
+  = @formula.periodic
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), formulas_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_formula_path(@formula), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), formula_path(@formula), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

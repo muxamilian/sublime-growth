@@ -1,0 +1,32 @@
+// Place all the styles related to the Formulas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+#main-canvas {
+  text: {
+    align: center;
+  }
+  width: 100%
+}
+table.information {
+  margin: {
+    top: $size-small
+  }
+  td {
+    &:first-child {
+      font-weight: bold;
+      &:after {
+        content: ":"
+      }
+    }
+    &:last-child {
+      padding-left: $size-small;
+    }
+  }
+}
+
+#interval {
+  width: $size-large;
+  margin-bottom: 0
+}
