@@ -11,7 +11,8 @@
 }
 table.information {
   margin: {
-    top: $size-small
+    top: $size-small;
+    bottom : $size-small;
   }
   td {
     &:first-child {
@@ -29,4 +30,17 @@ table.information {
 #interval {
   width: $size-large;
   margin-bottom: 0
+}
+
+.modal-body {
+  padding: {
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  form, .form-actions {
+    margin: {
+      bottom: 0;
+    }
+  }
 }

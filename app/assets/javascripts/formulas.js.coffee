@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 # default values
-window.default_image = "http://localhost:8080/assets/lines.png"
+window.default_image = "http://localhost:8080/assets/rails.png"
 window.default_formula = "1 - 3.3 * Math.pow(current_value + current_surrounding_value - (current_foreign_value + current_foreign_surrounding_value) - 0.8, 2) - 5 * Math.pow(Math.abs(current_value + current_surrounding_value - (current_foreign_value + current_foreign_surrounding_value)) - 0.6, 3)"
 
 # image object and stuff
@@ -32,7 +32,7 @@ window.get_png = ->
 
 window.set_interval = ->
   parsed_number = parseInt interval_field.val()
-  if parsed_number && parsed_number >= 0
+  if !isNaN(parsed_number) && parsed_number >= 0
     interval = parsed_number
     if playing
       pause()

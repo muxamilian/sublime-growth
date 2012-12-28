@@ -2,6 +2,7 @@ class FormulasController < ApplicationController
   # GET /formulas
   # GET /formulas.json
   def index
+    @formula = Formula.new
     @formulas = Formula.all
 
     respond_to do |format|

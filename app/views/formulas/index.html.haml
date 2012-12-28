@@ -28,6 +28,7 @@
           %td
             = t '.sidebar.iterations'
           %td#iterations 0
+      %button#new.btn.btn-mini{"data-target" => "#new-formula", "data-toggle" => "modal", :type => "button"}=raw t '.sidebar.new_formula'
 
 - content_for :page_specific_scripts do
   :coffeescript
@@ -40,6 +41,16 @@
       $("#download").click ->
         img = get_png()
         open(img, '_blank')
+
+#new-formula.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "new-formula-label", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#new-formula-label New formula
+  .modal-body
+    = render partial: 'formulas/form'
+  / .modal-footer
+  /   %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+  /   %button.btn.btn-primary Save changes
 
 / %table.table.table-striped
 /   %thead

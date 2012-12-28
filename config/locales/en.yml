@@ -12,5 +12,6 @@ en:
         download: '<i class="icon-download"></i> download'
         iterations: iterations
         interval: interval
+        new_formula: '<i class="icon-plus"></i> formula'
       title: Sublime growth
       small_title: awesome wobbly images

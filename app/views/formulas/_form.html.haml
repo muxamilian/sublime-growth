@@ -15,6 +15,6 @@
     = f.label :periodic, :class => 'control-label'
     .controls
       = f.check_box :periodic, :class => 'check_box'
-  .form-actions
+  .form-actions.modal-footer
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), formulas_path, :class => 'btn'
