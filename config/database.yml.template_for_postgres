@@ -8,8 +8,8 @@ development:
   encoding: unicode
   database: sublime_growth_development
   pool: 5
-  username: max
-  password: 
+  username: <your username>
+  password: <password>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,13 +19,13 @@ test:
   encoding: unicode
   database: sublime_growth_test
   pool: 5
-  username: max
-  password: 
+  username: <your username>
+  password: <password>
 
 production:
   adapter: postgresql
   encoding: unicode
   database: sublime_growth_production
   pool: 5
-  username: max
-  password: 
+  username: <your username>
+  password: <password>

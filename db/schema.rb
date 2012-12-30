@@ -11,24 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230011815) do
+ActiveRecord::Schema.define(:version => 20121230004214) do
 
   create_table "formulas", :force => true do |t|
-    t.string   "formula"
+    t.text     "formula"
     t.text     "description"
-    t.integer  "counter"
-    t.boolean  "periodic"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "counter",     :default => 0
+    t.boolean  "periodic",    :default => false
     t.integer  "period",      :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "images", :force => true do |t|
-    t.text     "url"
+    t.text     "uri"
     t.text     "description"
+    t.integer  "counter",     :default => 0
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
-    t.integer  "counter",     :default => 0
   end
 
 end

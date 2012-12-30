@@ -21,16 +21,18 @@
     .navbar.navbar-fluid-top.navbar-inverse
       .navbar-inner
         .container-fluid
-          %a.btn.btn-navbar{'data-target'  => ".nav-collapse", 'data-toggle' => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
+          / %a.btn.btn-navbar{'data-target'  => ".nav-collapse", 'data-toggle' => "collapse"}
+          /   %span.icon-bar
+          /   %span.icon-bar
+          /   %span.icon-bar
           %a.brand{href: "/"}= t "title"
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+          %form.navbar-search.pull-right
+            %input.search-query{placeholder: (t 'search'), type: "text"}
+          / .container.nav-collapse
+          /   %ul.nav
+          /     %li= link_to "Link 1", "/path1"
+          /     %li= link_to "Link 2", "/path2"
+          /     %li= link_to "Link 3", "/path3"
 
     .container-fluid
       .row-fluid
