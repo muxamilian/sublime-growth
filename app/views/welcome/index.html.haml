@@ -1,0 +1,57 @@
+.page-header
+  %h1
+    =t '.title'
+    %small
+      =t '.small_title'
+
+%canvas{id: 'main-canvas'}
+
+- content_for :sidebar do
+  .span3
+    .well
+      %ul.inline
+        %li#controls-nav
+          %h2= t '.sidebar.controls.title'
+          %table.information
+            %tr
+              %td
+                = t '.sidebar.controls.interval'
+              %td
+                %input#interval{type: 'text'}
+            %tr
+              %td
+                = t '.sidebar.controls.iterations'
+              %td
+                %span#iterations 0
+          %button#play.btn.btn-success.btn-mini{type: 'button'}
+            =raw t '.sidebar.controls.play'
+          %button#pause.btn.btn-danger.btn-mini{type: 'button'}
+            =raw t '.sidebar.controls.pause'
+          %button#reset.btn.btn-warning.btn-mini{type: 'button'}
+            =raw t '.sidebar.controls.reset'
+          %button#download.btn.btn-mini{type: 'button'}
+            =raw t '.sidebar.controls.download'
+        %li#formulas-nav
+          %h2= t '.sidebar.formulas.title'
+          %p
+            a table belongs here
+          %a#new.btn.btn-mini{"data-target" => "#new-formula-modal", "data-toggle" => "modal", "data-remote" => new_formula_path}=raw t '.sidebar.formulas.new_formula'
+        %li#images-nav
+          %h2= t '.sidebar.images.title'
+          %p
+            spam and eggs
+          %a#new.btn.btn-mini{"data-target" => "#new-image-modal", "data-toggle" => "modal", "data-remote" => new_image_path}=raw t '.sidebar.images.new_image'
+
+- content_for :page_specific_scripts do
+  :coffeescript
+    $ ->
+      initialize_canvas(default_image, default_formula)
+      $("#play").click -> play()
+      $("#pause").click -> pause()
+      $("#reset").click -> reset()
+      $("#interval").change -> set_interval()
+      $("#download").click ->
+        img = get_png()
+        open(img, '_blank')
+
+= render partial: "modals"

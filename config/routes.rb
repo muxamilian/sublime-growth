@@ -1,8 +1,10 @@
 SublimeGrowth::Application.routes.draw do
 
-  root :to => "formulas#index"
+  root to: "welcome#index"
 
-  resources :formulas, only: [:new, :create, :update, :destroy]
+  resources :images
+
+  resources :formulas
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

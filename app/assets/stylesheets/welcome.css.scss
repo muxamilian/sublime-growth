@@ -1,0 +1,49 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+
+#main-canvas {
+  text: {
+    align: center;
+  }
+  width: 100%
+}
+
+.well {
+  ul {
+    li {
+      vertical-align: top;
+    }
+  }
+}
+
+table.information {
+  margin: {
+    top: $size-small;
+    bottom : $size-small;
+  }
+  td {
+    &:first-child {
+      font-weight: bold;
+      &:after {
+        content: ":"
+      }
+    }
+    &:last-child {
+      padding: {
+        left: $size-small;
+      }
+    }
+  }
+  #interval {
+    width: $size-large;
+    margin-bottom: 0
+  }
+  #iterations {
+    padding: {
+      left: 8px;
+    }
+  }
+}

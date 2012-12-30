@@ -2,8 +2,8 @@ class FormulasController < ApplicationController
   # GET /formulas
   # GET /formulas.json
   def index
-    @formula = Formula.new
-    @formulas = Formula.all
+    # Get the 3 most popular formulas
+    @formulas = Formula.order('counter').limit(3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +28,7 @@ class FormulasController < ApplicationController
     @formula = Formula.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render layout: false }
       format.json { render json: @formula }
     end
   end
@@ -42,15 +42,10 @@ class FormulasController < ApplicationController
   # POST /formulas.json
   def create
     @formula = Formula.new(params[:formula])
-
+    @formula.save
     respond_to do |format|
-      if @formula.save
-        format.html { redirect_to @formula, notice: 'Formula was successfully created.' }
-        format.json { render json: @formula, status: :created, location: @formula }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @formula.errors, status: :unprocessable_entity }
-      end
+      format.js
+      format.json { render json: @formula.errors }
     end
   end
 

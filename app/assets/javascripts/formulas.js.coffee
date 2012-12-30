@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 # default values
-window.default_image = "http://localhost:8080/assets/rails.png"
+window.default_image = "http://localhost:8080/assets/demo3.png"
 window.default_formula = "1 - 3.3 * Math.pow(current_value + current_surrounding_value - (current_foreign_value + current_foreign_surrounding_value) - 0.8, 2) - 5 * Math.pow(Math.abs(current_value + current_surrounding_value - (current_foreign_value + current_foreign_surrounding_value)) - 0.6, 3)"
 
 # image object and stuff
@@ -25,7 +25,10 @@ playing = false
 c = null
 
 # This gets executed when jQuery has finished loading
-# $ ->
+$ ->
+  $("body").on "hidden", ".modal", ->
+    $(this).removeData "modal"
+
 
 window.get_png = ->
   canvas.toDataURL("image/png")
@@ -150,3 +153,39 @@ get_surrounding_values = (x,y) ->
   # Normalize values.
   [value_red/8, value_green/8, value_blue/8]
 
+
+
+window.bootstrap_alert = ->
+
+bootstrap_alert.info = (message) ->
+  $("#flash-container").prepend '<div class="fade in alert alert-info"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>'
+
+bootstrap_alert.warning = (message) ->
+  $("#flash-container").prepend '<div class="fade in alert alert-warning"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>'
+
+bootstrap_alert.error = (message) ->
+  $("#flash-container").prepend '<div class="fade in alert alert-error"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>'
+
+
+
+window.flag_field = ->
+
+flag_field.warning = (id, message) -> 
+  control = $(id).parent()
+  control.children('.help-inline').html(message)
+  control.parent().addClass 'warning'
+
+flag_field.error = (id, message) -> 
+  control = $(id).parent()
+  control.children('.help-inline').html(message)
+  control.parent().addClass 'error'
+
+flag_field.info = (id, message) -> 
+  control = $(id).parent()
+  control.children('.help-inline').html(message)
+  control.parent().addClass 'info'
+
+flag_field.success = (id, message) -> 
+  control = $(id).parent()
+  control.children('.help-inline').html(message)
+  control.parent().addClass 'success'

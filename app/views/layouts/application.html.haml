@@ -21,7 +21,7 @@
     .navbar.navbar-fluid-top.navbar-inverse
       .navbar-inner
         .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+          %a.btn.btn-navbar{'data-target'  => ".nav-collapse", 'data-toggle' => "collapse"}
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
@@ -33,10 +33,11 @@
               %li= link_to "Link 3", "/path3"
 
     .container-fluid
-
       .row-fluid
         = yield :sidebar
         .span9
+          #flash-container
+            = bootstrap_flash
           = yield
 
       / %footer

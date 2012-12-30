@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221165540) do
+ActiveRecord::Schema.define(:version => 20121230011815) do
 
   create_table "formulas", :force => true do |t|
     t.string   "formula"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20121221165540) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "period",      :default => 0
+  end
+
+  create_table "images", :force => true do |t|
+    t.text     "url"
+    t.text     "description"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "counter",     :default => 0
   end
 
 end

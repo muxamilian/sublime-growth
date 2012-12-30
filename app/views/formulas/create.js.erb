@@ -1,0 +1,8 @@
+<% if @formula.errors.empty? %>
+  $('#new-formula-modal').modal('hide');
+  bootstrap_alert.info("Success! (This is only for debugging.)");
+<% else %>
+  <% @formula.errors.each do |key, message| %>
+    flag_field.error('#formula_<%= key.to_s %>', '<%= message %>');
+  <% end %>
+<% end %>

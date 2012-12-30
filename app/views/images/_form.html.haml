@@ -1,14 +1,12 @@
-= form_for @formula, :html => { :class => 'form-horizontal' }, remote: true do |f|
+= form_for @image, :html => { :class => 'form-horizontal' } do |f|
   .control-group
-    = f.label :formula, :class => 'control-label'
+    = f.label :url, :class => 'control-label'
     .controls
-      = f.text_area :formula, :class => 'text_area', rows: 5
-      %span.help-inline
+      = f.text_area :url, :class => 'text_area', rows: 5
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
       = f.text_area :description, :class => 'text_area', rows: 5
-      %span.help-inline
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     %button.btn{type: 'button', 'data-dismiss' => 'modal'}

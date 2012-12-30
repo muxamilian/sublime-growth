@@ -3,15 +3,30 @@
 
 en:
   title: Sublime growth
-  formulas:
+
+  welcome:
     index:
       sidebar: 
-        play: '<i class="icon-play"></i>'
-        pause: '<i class="icon-pause"></i>'
-        reset: '<i class="icon-step-backward"></i>'
-        download: '<i class="icon-download"></i> download'
-        iterations: iterations
-        interval: interval
-        new_formula: '<i class="icon-plus"></i> formula'
+        controls:
+          title: Controls
+          play: '<i class="icon-play"></i>'
+          pause: '<i class="icon-pause"></i>'
+          reset: '<i class="icon-step-backward"></i>'
+          download: '<i class="icon-download"></i> save'
+          iterations: iterations
+          interval: interval
+        formulas:
+          title: Formulas
+          new_formula: '<i class="icon-plus"></i> formula'
+        images:
+          title: Images
+          new_image: '<i class="icon-plus"></i> image'
+
       title: Sublime growth
       small_title: awesome wobbly images
+
+      new_formula_label: New formula
+      new_image_label: New image
+
+  formulas:
+    index:
